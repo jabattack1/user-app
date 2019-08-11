@@ -3,7 +3,7 @@
 //1. the action(info about what happened)
 //2. copy of current state
 
-function posts(state = [], action) {
+function user(state = [], action) {
   // console.log('the post will change');
   // console.log(state, action);
   switch (action.type) {
@@ -13,7 +13,7 @@ function posts(state = [], action) {
       //return the updated state
       return [
         ...state.slice(0, i), //before the one we are updating
-        { ...state[i], likes: state[i].likes + 1 },
+        { ...state[i]},
         ...state.slice(i + 1) //after the one we are updating
       ];
     default:
@@ -23,4 +23,4 @@ function posts(state = [], action) {
   // return state;
 }
 
-export default posts;
+export default user;

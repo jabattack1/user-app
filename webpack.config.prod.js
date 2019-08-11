@@ -5,7 +5,7 @@ module.exports = {
   devtool: 'source-map',
   entry: [
     
-    './client/users'
+    './client/userApp'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -38,6 +38,10 @@ module.exports = {
       test: /\.styl$/, 
       include: path.join(__dirname, 'client'),
       loader: 'style-loader!css-loader!stylus-loader'
+    },
+    {
+      test: /\.css$/,
+      loader:'style!css!'
     }
     ]
   }

@@ -4,21 +4,21 @@ import { bindActionCreators } from "redux";
 
 import * as actionCreators from "../actions/actionCreators.js";
 
-import Photo from "./Photo.js";
+import User from "./User.js";
 import Comments from "./Comments.js";
 
 class Single extends React.Component {
   render() {
-    //index of the post
-    const { postId } = this.props.match.params;
-    const i = this.props.posts.findIndex((post) => post.code === postId);
-    //get us the post
-    const post = this.props.posts[i];
-    const postComments = this.props.comments[postId] || [];
+    //index of the user
+    const { userId } = this.props.match.params;
+    const i = this.props.user.findIndex((user) => user.code === userId);
+    //get us the user
+    const user = this.props.user[i];
+    const userComments = this.props.comments[userId] || [];
     return (
-      <div className="single-photo">
-        <Photo i={i} post={post} {...this.props} />
-        <Comments postComments={postComments} {...this.props} />
+      <div className="single-User">
+        <User i={i} user={user} {...this.props} />
+        <Comments userComments={userComments} {...this.props} />
       </div>
     );
   }
@@ -26,7 +26,7 @@ class Single extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    posts: state.posts,
+    user: state.user,
     comments: state.comments
   };
 }

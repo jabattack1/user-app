@@ -3,11 +3,11 @@ import { createStore, compose } from "redux";
 import rootReducer from "./reducers/index";
 
 import comments from "./data/comments";
-import posts from "./data/posts";
+import user from "./data/user";
 
 //create object for the default data
 const defaultState = {
-  posts,
+  user,
   comments
 };
 

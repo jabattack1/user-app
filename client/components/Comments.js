@@ -8,7 +8,7 @@ class Comments extends React.Component {
   }
 
   renderComment(comment, i) {
-    const { postId } = this.props.match.params;
+    const { userId } = this.props.match.params;
     return (
       <div className="comment" key={i}>
         <p>
@@ -16,7 +16,7 @@ class Comments extends React.Component {
           {comment.text}
           <button
             className="remove-comment"
-            onClick={() => this.props.removeComment(postId, i)}>
+            onClick={() => this.props.removeComment(userId, i)}>
             &times;
           </button>
         </p>
@@ -27,17 +27,17 @@ class Comments extends React.Component {
   handleSubmit(event) {
     //prevent page from refreshing
     event.preventDefault();
-    const { postId } = this.props.match.params;
+    const { userId } = this.props.match.params;
     const author = this.author.value;
     const comment = this.comment.value;
-    this.props.addComment(postId, author, comment);
+    this.props.addComment(userId, author, comment);
     this.commentForm.reset();
   }
 
   render() {
     return (
       <div className="comments">
-        {this.props.postComments.map((comment, i) =>
+        {this.props.userComments.map((comment, i) =>
           this.renderComment(comment, i)
         )}
         <form

@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import PhotoGrid from "./PhotoGrid";
+import UserGrid from "./UserGrid";
 
 class Main extends React.Component {
   render() {
     return (
       <div>
         <h1>
-          <Link to="/">Reduxtagram</Link>
+          <Link to="/">User App</Link>
         </h1>
-        <PhotoGrid {...this.props} />
+        <UserGrid {...this.props} />
       </div>
     );
   }
