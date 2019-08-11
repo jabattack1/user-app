@@ -5,17 +5,18 @@
 
 function user(state = [], action) {
   // console.log('the post will change');
-  // console.log(state, action);
   switch (action.type) {
-    case "INCREMENT_LIKES":
-      // console.log('incrementing likes');
-      const i = action.index;
+    case "UPDATE_USER":
+      const i = action.i;
+      console.log(action);
+      state[i].first_name = action.first_name;
+      state[i].last_name = action.last_name;
+      state[i].email = action.email;
+      state[i].role = action.role;
+      state[i].status = action.status;
+      console.log(state);
       //return the updated state
-      return [
-        ...state.slice(0, i), //before the one we are updating
-        { ...state[i]},
-        ...state.slice(i + 1) //after the one we are updating
-      ];
+      return [...state];
     default:
       return state;
   }

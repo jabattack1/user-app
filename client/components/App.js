@@ -7,7 +7,6 @@ import Main from "./Main";
 function mapStateToProps(state){
 	return {
 		user: state.user,
-		comments: state.comments
 	}
 }
 

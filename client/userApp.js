@@ -26,7 +26,7 @@ const router = (
   <Provider store={store}>
     <Router>
       <Route exact path="/" component={App} />
-      <Route exact path="/view/:postId" component={Single} />
+      <Route exact path="/view/:userId" component={Single} />
     </Router>
   </Provider>
 );

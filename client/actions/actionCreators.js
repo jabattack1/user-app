@@ -1,8 +1,13 @@
 //increment
-export function increment(index) {
+export function update(i, first_name, last_name, email, role, status) {
   return {
-    type: "INCREMENT_LIKES",
-    index
+    type: "UPDATE_USER",
+    i,
+    first_name,
+    last_name, 
+    email, 
+    role, 
+    status
   };
 }
 

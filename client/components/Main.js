@@ -7,9 +7,6 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <h1>
-          <Link to="/">User App</Link>
-        </h1>
         <UserGrid {...this.props} />
       </div>
     );
