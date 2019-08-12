@@ -11,6 +11,10 @@ li{
   margin-left:-40px;
 }
 
+h1{
+  font-weight:bold;
+}
+
 #logo{
  width:60%;
  margin:auto;
