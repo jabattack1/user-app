@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
 body {
-  background: offwhite;
+  background: #FAF0E3;
+  font-family: 'Muli', sans-serif;
+  color:#245CA6;
 }
 
 li{
@@ -14,12 +18,20 @@ li{
  padding-bottom:1em;
 }
 
+.createLink{
+  margin:auto;
+  display:block;
+  text-align:center;
+  text-decoration: none;
+  width:200px;
+  color:#245CA6;
+}
+
 .user-grid {
   display: flex;
   flex-wrap: wrap;
   max-width: 980px;
   margin: 0 auto;
-/*  background-color: black;*/
 }
 
 .grid-figure{
@@ -39,8 +51,34 @@ li{
   position:relative;
   width:600px;
   height:200px;
-  /*background-color:black;*/
   margin-left:600px;
+}
+
+div label{
+  width:200px;
+}
+
+div label input{
+  min-width:100%;
+  height:20px;
+}
+
+div label select{
+  margin-left:.2em;
+  margin-top:12px;
+}
+
+.create{
+  position:relative;
+  margin: 0 auto;
+  display:block;
+  width:600px;
+  height:200px;
+}
+
+.create label input{
+  min-width:100%;
+  height:20px;
 }
 
 .grid-user {
@@ -49,97 +87,44 @@ li{
   margin-top: -2rem;
   max-width: none;
 }
-.remove-comment {
-  background: none;
-  border: 0;
-  line-height: 1;
-  opacity: 0;
-}
-.remove-comment:hover {
-  color: #f00;
-}
-.comment {
-  border-bottom: 1px solid #d3d3d3;
-  padding: 0.5rem 0;
-}
-.comment p {
-  font-size: 1.2rem;
-  margin: 0;
-}
-.comment strong {
-  color: #00f;
-  margin-right: 5px;
-}
-.comment:hover .remove-comment {
-  opacity: 1;
-}
-.comment-form input,
-.comment-form textarea {
-  width: 100%;
-  border: 0;
-  font-size: 1.3rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid #d3d3d3;
-  outline: none;
-  resize: vertical;
-}
+
 .grid-user-wrap {
   position: relative;
 }
-.likes-heart {
-  background: url("http://f.cl.ly/items/3Y373q2Q3J3Y1j203n0m/Bitmap-3.png") center no-repeat;
-  background-size: contain;
-  font-size: 2rem;
-  padding: 1rem;
-  position: absolute;
-  color: #00f;
-  left: 50%;
-  top: 50%;
-  pointer-events: none;
-}
+
 .control-buttons {
   display: flex;
   justify-content: space-between;
 }
 button,
 .button {
-  border: 2px solid #f2f2f2;
-  background: none;
-  flex-basis: 48%;
+  border: 2px solid #245CA6;
   display: inline-block;
-  line-height: 2;
-  text-decoration: none;
+  margin-top:10px;
   padding: 5px;
   text-align: center;
   font-size: 15px;
-  color: #00f;
+  color: #245CA6;
   transition: all 0.2s;
   box-sizing: padding-box;
+  width:290px;
+  height:30px;
 }
 button:hover,
 .button:hover,
 button:focus,
 .button:focus {
-  border-color: #00f;
+  border-color: #A3C7ED;
+  color: #A3C7ED;
   outline: 0;
+  cursor:pointer;
 }
-.speech-bubble {
-  width: 1.5rem;
-  height: 1.25rem;
-  background: #00f;
-  display: inline-block;
-  border-radius: 50%;
-  position: relative;
+
+#deleteButton{
+  color:red;
 }
-.speech-bubble:after {
-  display: inline-block;
-  position: absolute;
-  content: '';
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 1.25rem 1.25rem 0;
-  border-color: transparent #00f transparent transparent;
-  top: 30%;
-  left: 0;
+#deleteButton:hover{
+  color:black;
+  background-color:red;
+  border-color: red;
 }

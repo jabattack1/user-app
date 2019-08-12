@@ -21,10 +21,17 @@ function user(state = [], action) {
       return [...state];
 
     case "CREATE_USER":
-      console.log('hro');
       var i = action.i;
 
-      state.push(element);
+      state.push({
+        "last_name": action.last_name,
+        "first_name": action.first_name,
+        "email": action.email,
+        "role": action.role,
+        "id": action.i.toString(),
+        "status": action.status,
+        "display_src": `https://picsum.photos/400/400/?image=${Math.floor((Math.random() * 85))}`,
+      });
       alert('Account Created - Going back a page only for demo purposes');
       window.history.back();
       //return the updated state

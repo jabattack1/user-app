@@ -5,10 +5,10 @@ import NewUser from "./NewUser.js";
 
 class UserGrid extends React.Component {
   render() {
-  	console.log(this);
+
     return (
       <div>
-        <Link to={"/create/"}>
+        <Link to={"/create/"} className='createLink'>
           <p>CREATE NEW ACCOUNT</p>
         </Link>
         <div className="user-grid">

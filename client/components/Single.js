@@ -8,7 +8,6 @@ import User from "./User.js";
 
 class Single extends React.Component {
   render() {
-    console.log(this);
     //index of the user
     const id = this.props.match.params.userId;
     //get index of user
@@ -22,7 +21,8 @@ class Single extends React.Component {
           <User i={i} user={user} {...this.props} />
         </div>
         <div className='edit'>
-          <label>
+          <h3>EDIT USER ACCOUNT</h3>
+          <label className='label'>
             First name: <input type="text" placeholder={user.first_name} ref='first_name'/><br/>
           </label>
           <label>
@@ -46,9 +46,9 @@ class Single extends React.Component {
               <option value="Inactive" >Inactive</option>
             </select><br/>
           </label>
-          <input type="submit" value="UPDATE" onClick={this.handleSubmit.bind(this)}/>
+          <button onClick={this.handleSubmit.bind(this)}>UPDATE ACCOUNT</button>
+        <button id='deleteButton'onClick={this.deleteAccount.bind(this)}>DELETE ACCOUNT</button>
         </div>
-        <input type="submit" value="DELETE ACCOUNT" onClick={this.deleteAccount.bind(this)}/>
       </div>
     );
   }
@@ -85,6 +85,7 @@ class Single extends React.Component {
       return user.email === mail;
     })[0];
 
+    //check if email address is a valid email address
     if(validateEmail(mail) &&  emailMatch === undefined){
       var email = this.refs.email.value;
     }
@@ -92,7 +93,10 @@ class Single extends React.Component {
       var email = this.props.user[i].email;
     }
 
+    //get role
     const role = this.refs.role.value;
+
+    //get status
     const status = this.refs.status.value;
 
     this.props.update(i, first_name, last_name, email, role, status);
@@ -101,7 +105,6 @@ class Single extends React.Component {
   //delete user account
   deleteAccount(){
     event.preventDefault();
-    console.log('delete');
     const i = this.props.match.params.userId;
     this.props.deleteUser(i);
   }
