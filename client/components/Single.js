@@ -8,9 +8,12 @@ import User from "./User.js";
 
 class Single extends React.Component {
   render() {
+    console.log(this);
     //index of the user
-    const i = this.props.match.params.userId;
-    //get us the user
+    const id = this.props.match.params.userId;
+    //get index of user
+    const i = this.props.user.map(function(e) { return e.id; }).indexOf(id);
+    //get the user
     const user = this.props.user[i];
 
     return (
@@ -19,32 +22,33 @@ class Single extends React.Component {
           <User i={i} user={user} {...this.props} />
         </div>
         <div className='edit'>
-        <label>
-          First name: <input type="text" placeholder={user.first_name} ref='first_name'/><br/>
-        </label>
-        <label>
-          Last name: <input type="text" placeholder={user.last_name} ref='last_name' /><br/>
-        </label>
-        <label>
-          Email: <input type="text" placeholder={user.email} ref='email'/><br/>
-        </label>
-        <label>
-          Role:
-          <select ref='role'>
-            <option value="Doctor">Doctor</option>
-            <option value="Admin">Admin</option>
-            <option value="Accountant">Accountant</option>
-          </select><br/>
-        </label>        
-        <label>
-          Status:
-          <select ref='status'>
-            <option value="Active">Active</option>
-            <option value="Inactive">Inactive</option>
-          </select><br/>
-        </label>
-        <input type="submit" value="UPDATE" onClick={this.handleSubmit.bind(this)}/>
+          <label>
+            First name: <input type="text" placeholder={user.first_name} ref='first_name'/><br/>
+          </label>
+          <label>
+            Last name: <input type="text" placeholder={user.last_name} ref='last_name' /><br/>
+          </label>
+          <label>
+            Email: <input type="text" placeholder={user.email} ref='email'/><br/>
+          </label>
+          <label>
+            Role:
+            <select ref='role'>
+              <option value="Doctor">Doctor</option>
+              <option value="Admin">Admin</option>
+              <option value="Accountant">Accountant</option>
+            </select><br/>
+          </label>        
+          <label>
+            Status:
+            <select ref='status'>
+              <option value="Active" >Active</option>
+              <option value="Inactive" >Inactive</option>
+            </select><br/>
+          </label>
+          <input type="submit" value="UPDATE" onClick={this.handleSubmit.bind(this)}/>
         </div>
+        <input type="submit" value="DELETE ACCOUNT" onClick={this.deleteAccount.bind(this)}/>
       </div>
     );
   }
@@ -55,15 +59,60 @@ class Single extends React.Component {
     const i = this.props.match.params.userId;
     const user = this.props.user[i];
 
-    const first_name = this.refs.first_name.value;
-    const last_name = this.refs.last_name.value;
-    const email = this.refs.email.value;
+    const first = this.refs.first_name.value;
+    const last = this.refs.last_name.value;
+
+    //check is first name is valid name
+    if(first.length < 2){
+      var first_name = this.props.user[i].first_name;
+    }
+    else{
+      var first_name = first;
+    }
+
+    //check is last name is valid name
+    if(last.length < 2){
+      var last_name = this.props.user[i].last_name;
+    }
+    else{
+      var last_name = last;
+    }
+
+    const mail = this.refs.email.value;
+
+    //find email address that matches this.refs.email.value
+    var emailMatch = this.props.user.filter(function(user) {
+      return user.email === mail;
+    })[0];
+
+    if(validateEmail(mail) &&  emailMatch === undefined){
+      var email = this.refs.email.value;
+    }
+    else{
+      var email = this.props.user[i].email;
+    }
+
     const role = this.refs.role.value;
     const status = this.refs.status.value;
+
     this.props.update(i, first_name, last_name, email, role, status);
   }
+
+  //delete user account
+  deleteAccount(){
+    event.preventDefault();
+    console.log('delete');
+    const i = this.props.match.params.userId;
+    this.props.deleteUser(i);
+  }
+
 }
 
+//validate email address
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
 
 function mapStateToProps(state) {
   return {

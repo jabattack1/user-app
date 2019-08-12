@@ -8,6 +8,7 @@ import css from "./styles/style.css";
 //import components
 import App from "./components/App.js";
 import Single from "./components/Single.js";
+import NewUser from "./components/NewUser.js";
 
 //import react router dps
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -27,6 +28,7 @@ const router = (
     <Router>
       <Route exact path="/" component={App} />
       <Route exact path="/view/:userId" component={Single} />
+      <Route exact path="/create" component={NewUser} />
     </Router>
   </Provider>
 );

@@ -5,7 +5,7 @@ const user = [
     "email": "peter@user.com",
     "role": "Doctor",
     "id": "0",
-    "status": "Active",
+    "status": "Inactive",
     "display_src": `https://picsum.photos/400/400/?image=${Math.floor((Math.random() * 85))}`,
   },
   {

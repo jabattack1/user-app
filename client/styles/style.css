@@ -14,10 +14,6 @@ li{
  padding-bottom:1em;
 }
 
-#logo:hover{
-  cursor:pointer;
-}
-
 .user-grid {
   display: flex;
   flex-wrap: wrap;
