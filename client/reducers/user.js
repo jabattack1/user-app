@@ -1,5 +1,4 @@
 function user(state = [], action) {
-
   switch (action.type) {
     case "UPDATE_USER":
       var i = action.i;
@@ -17,6 +16,16 @@ function user(state = [], action) {
 
       state.splice(i,1);
       alert('Account Deleted - Going back a page only for demo purposes');
+      window.history.back();
+      //return the updated state
+      return [...state];
+
+    case "CREATE_USER":
+      console.log('hro');
+      var i = action.i;
+
+      state.push(element);
+      alert('Account Created - Going back a page only for demo purposes');
       window.history.back();
       //return the updated state
       return [...state];

@@ -19,4 +19,18 @@ export function deleteUser(i) {
   };
 }
 
+//create
+export function create(i, first_name, last_name, email, role, status) {
+  console.log('sh');
+  return {
+    type: "CREATE_USER",
+    i,
+    first_name,
+    last_name, 
+    email, 
+    role, 
+    status
+  };
+}
+
 
