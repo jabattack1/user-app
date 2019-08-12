@@ -27,6 +27,7 @@ li{
   color:#245CA6;
 }
 
+/*grid*/
 .user-grid {
   display: flex;
   flex-wrap: wrap;
@@ -41,12 +42,25 @@ li{
   max-width:600px;
 }
 
+/*single*/
 .single-user {
   position: relative;
   max-width: 600px;
   float:left;
 }
 
+.grid-user {
+  width: calc(100% + 4rem);
+  margin-left: -2rem;
+  margin-top: -2rem;
+  max-width: none;
+}
+
+.grid-user-wrap {
+  position: relative;
+}
+
+/*user edit/create*/
 .edit{
   position:relative;
   width:600px;
@@ -81,17 +95,7 @@ div label select{
   height:20px;
 }
 
-.grid-user {
-  width: calc(100% + 4rem);
-  margin-left: -2rem;
-  margin-top: -2rem;
-  max-width: none;
-}
-
-.grid-user-wrap {
-  position: relative;
-}
-
+/*buttons*/
 .control-buttons {
   display: flex;
   justify-content: space-between;
