@@ -44,7 +44,15 @@ class NewUser extends React.Component {
     handleCreate(event){
     event.preventDefault();
 
-    const i = parseInt(this.props.user[this.props.user.length-1].id) + 1;
+    //check if user object is empty
+    console.log(this.props.user.length);
+    if(this.props.user.length===0){
+    	var i = 1;
+    }
+    else{
+    	var i = parseInt(this.props.user[this.props.user.length-1].id) + 1;
+	}
+
     //check if first name is valid name
     const first = this.refs.first_name.value;
 

@@ -56,7 +56,8 @@ class Single extends React.Component {
   handleSubmit(event){
     event.preventDefault();
 
-    const i = this.props.match.params.userId;
+    const id = this.props.match.params.userId;
+    const i = this.props.user.map(function(e) { return e.id; }).indexOf(id);
     const user = this.props.user[i];
 
     const first = this.refs.first_name.value;
@@ -105,7 +106,9 @@ class Single extends React.Component {
   //delete user account
   deleteAccount(){
     event.preventDefault();
-    const i = this.props.match.params.userId;
+    
+    const id = this.props.match.params.userId;
+    const i = this.props.user.map(function(e) { return e.id; }).indexOf(id);
     this.props.deleteUser(i);
   }
 
