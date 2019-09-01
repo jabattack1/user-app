@@ -12,14 +12,15 @@ class User extends React.Component {
             <img
               src={user[i].display_src}
               className="grid-User"
+              id='photo'
             />
           </Link>
           <div>
             <ul>
-            <li>Name: {user[i].first_name} {user[i].last_name}</li>
-            <li>Email: {user[i].email}</li>
-            <li>Role: {user[i].role}</li>
-            <li>Status: {user[i].status}</li>
+              <li>Name: {user[i].first_name} {user[i].last_name}</li>
+              <li>Email: {user[i].email}</li>
+              <li>Role: {user[i].role}</li>
+              <li>Status: {user[i].status}</li>
             </ul>
           </div>
         </div>

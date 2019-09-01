@@ -17,11 +17,12 @@ class Single extends React.Component {
 
     return (
       <div>
+        <h3>EDIT USER ACCOUNT</h3>
+      <div id='editUserBox'>
         <div className="single-user">
           <User i={i} user={user} {...this.props} />
         </div>
         <div className='edit'>
-          <h3>EDIT USER ACCOUNT</h3>
           <label className='label'>
             First name: <input type="text" placeholder={user.first_name} ref='first_name'/><br/>
           </label>
@@ -49,6 +50,7 @@ class Single extends React.Component {
           <button onClick={this.handleSubmit.bind(this)}>UPDATE ACCOUNT</button>
         <button id='deleteButton'onClick={this.deleteAccount.bind(this)}>DELETE ACCOUNT</button>
         </div>
+      </div>
       </div>
     );
   }

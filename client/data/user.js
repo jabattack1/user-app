@@ -17,6 +17,24 @@ const user = [
     "status": "Active",
     "display_src": `https://picsum.photos/400/400/?image=${Math.floor((Math.random() * 85))}`,
   },
+  {
+    "last_name": "Hahno",
+    "first_name": "Kevin",
+    "email": "kevin@user.com",
+    "role": "Accountant",
+    "id": "1",
+    "status": "Active",
+    "display_src": `https://picsum.photos/400/400/?image=${Math.floor((Math.random() * 85))}`,
+  },
+  {
+    "last_name": "Kano",
+    "first_name": "Linda",
+    "email": "linda@user.com",
+    "role": "Accountant",
+    "id": "1",
+    "status": "Active",
+    "display_src": `https://picsum.photos/400/400/?image=${Math.floor((Math.random() * 85))}`,
+  },
 ];
 
 

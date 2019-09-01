@@ -8,9 +8,11 @@ class UserGrid extends React.Component {
 
     return (
       <div>
-        <Link to={"/create/"} className='createLink'>
-          <p>CREATE NEW ACCOUNT</p>
-        </Link>
+        <div className='createLinkBox'>
+          <Link to={"/create/"} className='createLink'>
+            <p className='createLinkContent'>CREATE NEW ACCOUNT</p>
+          </Link>
+        </div>
         <div className="user-grid">
           {this.props.user.map((user, i) => (
             <User {...this.props} key={i} i={i} post={user} {...this.props} />
