@@ -4,6 +4,7 @@ import CSSTransitionGroup from "react-addons-css-transition-group";
 
 class User extends React.Component {
   render() {
+  console.log(this);
     const { user, i} = this.props;
     return (
       <figure className="grid-figure">

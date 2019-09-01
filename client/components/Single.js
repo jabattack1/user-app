@@ -15,44 +15,252 @@ class Single extends React.Component {
     //get the user
     const user = this.props.user[i];
 
-    return (
-      <div>
-        <h3>EDIT USER ACCOUNT</h3>
-      <div id='editUserBox'>
-        <div className="single-user">
-          <User i={i} user={user} {...this.props} />
+    var userInfo;
+
+    if(user.role === 'Doctor' && user.status === 'Active'){
+      userInfo = (
+        <div>
+            <h3>EDIT USER ACCOUNT</h3>
+          <div id='editUserBox'>
+            <div className="single-user">
+              <User i={i} user={user} {...this.props} />
+            </div>
+            <div className='edit'>
+              <label className='label'>
+                First name: <input type="text" placeholder={user.first_name} ref='first_name'/><br/>
+              </label>
+              <label>
+                Last name: <input type="text" placeholder={user.last_name} ref='last_name' /><br/>
+              </label>
+              <label>
+                Email: <input type="text" placeholder={user.email} ref='email'/><br/>
+              </label>
+              <label>
+                Role:
+                <select ref='role'>
+                  <option value="Doctor" selected>Doctor</option>
+                  <option value="Admin">Admin</option>
+                  <option value="Accountant">Accountant</option>
+                </select><br/>
+              </label>        
+              <label>
+                Status:
+                <select ref='status'>
+                  <option value="Active" selected>Active</option>
+                  <option value="Inactive" >Inactive</option>
+                </select><br/>
+              </label>
+              <button onClick={this.handleSubmit.bind(this)}>UPDATE ACCOUNT</button>
+              <button id='deleteButton'onClick={this.deleteAccount.bind(this)}>DELETE ACCOUNT</button>
+            </div>
+          </div>
         </div>
-        <div className='edit'>
-          <label className='label'>
-            First name: <input type="text" placeholder={user.first_name} ref='first_name'/><br/>
-          </label>
-          <label>
-            Last name: <input type="text" placeholder={user.last_name} ref='last_name' /><br/>
-          </label>
-          <label>
-            Email: <input type="text" placeholder={user.email} ref='email'/><br/>
-          </label>
-          <label>
-            Role:
-            <select ref='role'>
-              <option value="Doctor">Doctor</option>
-              <option value="Admin">Admin</option>
-              <option value="Accountant">Accountant</option>
-            </select><br/>
-          </label>        
-          <label>
-            Status:
-            <select ref='status'>
-              <option value="Active" >Active</option>
-              <option value="Inactive" >Inactive</option>
-            </select><br/>
-          </label>
-          <button onClick={this.handleSubmit.bind(this)}>UPDATE ACCOUNT</button>
-        <button id='deleteButton'onClick={this.deleteAccount.bind(this)}>DELETE ACCOUNT</button>
+      );
+    }
+    else if(user.role === 'Doctor' && user.status === 'Inactive'){
+            userInfo = (
+        <div>
+            <h3>EDIT USER ACCOUNT</h3>
+          <div id='editUserBox'>
+            <div className="single-user">
+              <User i={i} user={user} {...this.props} />
+            </div>
+            <div className='edit'>
+              <label className='label'>
+                First name: <input type="text" placeholder={user.first_name} ref='first_name'/><br/>
+              </label>
+              <label>
+                Last name: <input type="text" placeholder={user.last_name} ref='last_name' /><br/>
+              </label>
+              <label>
+                Email: <input type="text" placeholder={user.email} ref='email'/><br/>
+              </label>
+              <label>
+                Role:
+                <select ref='role'>
+                  <option value="Doctor" selected>Doctor</option>
+                  <option value="Admin">Admin</option>
+                  <option value="Accountant">Accountant</option>
+                </select><br/>
+              </label>        
+              <label>
+                Status:
+                <select ref='status'>
+                  <option value="Active">Active</option>
+                  <option value="Inactive" selected>Inactive</option>
+                </select><br/>
+              </label>
+              <button onClick={this.handleSubmit.bind(this)}>UPDATE ACCOUNT</button>
+              <button id='deleteButton'onClick={this.deleteAccount.bind(this)}>DELETE ACCOUNT</button>
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
-    );
+      );
+    }
+
+    if(user.role === 'Admin' && user.status === 'Active'){
+      userInfo = (
+        <div>
+            <h3>EDIT USER ACCOUNT</h3>
+          <div id='editUserBox'>
+            <div className="single-user">
+              <User i={i} user={user} {...this.props} />
+            </div>
+            <div className='edit'>
+              <label className='label'>
+                First name: <input type="text" placeholder={user.first_name} ref='first_name'/><br/>
+              </label>
+              <label>
+                Last name: <input type="text" placeholder={user.last_name} ref='last_name' /><br/>
+              </label>
+              <label>
+                Email: <input type="text" placeholder={user.email} ref='email'/><br/>
+              </label>
+              <label>
+                Role:
+                <select ref='role'>
+                  <option value="Doctor">Doctor</option>
+                  <option value="Admin" selected>Admin</option>
+                  <option value="Accountant">Accountant</option>
+                </select><br/>
+              </label>        
+              <label>
+                Status:
+                <select ref='status'>
+                  <option value="Active" selected>Active</option>
+                  <option value="Inactive" >Inactive</option>
+                </select><br/>
+              </label>
+              <button onClick={this.handleSubmit.bind(this)}>UPDATE ACCOUNT</button>
+              <button id='deleteButton'onClick={this.deleteAccount.bind(this)}>DELETE ACCOUNT</button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    else if(user.role === 'Admin' && user.status === 'Inactive'){
+      userInfo = (
+        <div>
+            <h3>EDIT USER ACCOUNT</h3>
+          <div id='editUserBox'>
+            <div className="single-user">
+              <User i={i} user={user} {...this.props} />
+            </div>
+            <div className='edit'>
+              <label className='label'>
+                First name: <input type="text" placeholder={user.first_name} ref='first_name'/><br/>
+              </label>
+              <label>
+                Last name: <input type="text" placeholder={user.last_name} ref='last_name' /><br/>
+              </label>
+              <label>
+                Email: <input type="text" placeholder={user.email} ref='email'/><br/>
+              </label>
+              <label>
+                Role:
+                <select ref='role'>
+                  <option value="Doctor">Doctor</option>
+                  <option value="Admin" selected>Admin</option>
+                  <option value="Accountant">Accountant</option>
+                </select><br/>
+              </label>        
+              <label>
+                Status:
+                <select ref='status'>
+                  <option value="Active" >Active</option>
+                  <option value="Inactive" selected>Inactive</option>
+                </select><br/>
+              </label>
+              <button onClick={this.handleSubmit.bind(this)}>UPDATE ACCOUNT</button>
+              <button id='deleteButton'onClick={this.deleteAccount.bind(this)}>DELETE ACCOUNT</button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if(user.role === 'Accountant' && user.status === 'Active'){
+      userInfo = (
+        <div>
+            <h3>EDIT USER ACCOUNT</h3>
+          <div id='editUserBox'>
+            <div className="single-user">
+              <User i={i} user={user} {...this.props} />
+            </div>
+            <div className='edit'>
+              <label className='label'>
+                First name: <input type="text" placeholder={user.first_name} ref='first_name'/><br/>
+              </label>
+              <label>
+                Last name: <input type="text" placeholder={user.last_name} ref='last_name' /><br/>
+              </label>
+              <label>
+                Email: <input type="text" placeholder={user.email} ref='email'/><br/>
+              </label>
+              <label>
+                Role:
+                <select ref='role'>
+                  <option value="Doctor">Doctor</option>
+                  <option value="Admin">Admin</option>
+                  <option value="Accountant" selected>Accountant</option>
+                </select><br/>
+              </label>        
+              <label>
+                Status:
+                <select ref='status'>
+                  <option value="Active" selected>Active</option>
+                  <option value="Inactive" >Inactive</option>
+                </select><br/>
+              </label>
+              <button onClick={this.handleSubmit.bind(this)}>UPDATE ACCOUNT</button>
+              <button id='deleteButton'onClick={this.deleteAccount.bind(this)}>DELETE ACCOUNT</button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    else if(user.role === 'Accountant' && user.status === 'Inactive'){
+            userInfo = (
+        <div>
+            <h3>EDIT USER ACCOUNT</h3>
+          <div id='editUserBox'>
+            <div className="single-user">
+              <User i={i} user={user} {...this.props} />
+            </div>
+            <div className='edit'>
+              <label className='label'>
+                First name: <input type="text" placeholder={user.first_name} ref='first_name'/><br/>
+              </label>
+              <label>
+                Last name: <input type="text" placeholder={user.last_name} ref='last_name' /><br/>
+              </label>
+              <label>
+                Email: <input type="text" placeholder={user.email} ref='email'/><br/>
+              </label>
+              <label>
+                Role:
+                <select ref='role'>
+                  <option value="Doctor">Doctor</option>
+                  <option value="Admin">Admin</option>
+                  <option value="Accountant" selected>Accountant</option>
+                </select><br/>
+              </label>        
+              <label>
+                Status:
+                <select ref='status'>
+                  <option value="Active" >Active</option>
+                  <option value="Inactive" selected>Inactive</option>
+                </select><br/>
+              </label>
+              <button onClick={this.handleSubmit.bind(this)}>UPDATE ACCOUNT</button>
+              <button id='deleteButton'onClick={this.deleteAccount.bind(this)}>DELETE ACCOUNT</button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    return userInfo
   }
 
   handleSubmit(event){
